@@ -6,7 +6,7 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 const Header = () => {
   return (
-    <header className="w-full border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
+    <header className="w-full border-b border-gray-300 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center group">
