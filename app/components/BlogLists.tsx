@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "../../sanity/lib/image";
+import { Post } from "@/typings";
 
 interface BlogListsProps {
   posts: Post[];
@@ -14,7 +15,7 @@ export default function BlogLists({ posts }: BlogListsProps) {
         {posts.map((post) => (
           <Link
             key={post._id}
-            href={`/post/${post.slug.current}`}
+            href={`/blog/${post.slug.current}`}
             className="group block"
           >
             <article className="flex items-center space-x-4 md:space-x-6 p-4 border-b border-gray-200 dark:border-gray-700 hover:bg-neutral-200/30 dark:hover:bg-gray-800/30 transition-colors">
