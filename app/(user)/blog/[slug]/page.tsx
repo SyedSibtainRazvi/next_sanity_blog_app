@@ -3,6 +3,8 @@ import { groq } from "next-sanity";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "../../../../sanity/lib/image";
 import { client } from "../../../../sanity/lib/client";
+import { notFound } from "next/navigation";
+import { Post, Category } from "@/typings";
 
 type Props = {
   params: Promise<{
@@ -20,22 +22,10 @@ const Blog = async ({ params }: Props) => {
       categories[]->
     }`;
 
-  const post = await client.fetch(query, { slug });
+  const post = await client.fetch<Post>(query, { slug });
 
   if (!post) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
-        <div className="text-center">
-          <h1 className="text-2xl font-medium text-gray-900 dark:text-white mb-2">
-            Post not found
-          </h1>
-          <p className="text-gray-500 dark:text-gray-400">
-            The post you&apos;re looking for doesn&apos;t exist or has been
-            removed.
-          </p>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   return (
