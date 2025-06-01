@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Blog Platform with Next.js and Sanity CMS
 
-## Getting Started
+A personal blog platform built with Next.js 15 and Sanity CMS, featuring a clean, modern UI and robust content management system.
 
-First, run the development server:
+## Links
+
+- [Live Demo](https://syedsibtainblogs.vercel.app/)
+- [GitHub Repository](https://github.com/SyedSibtainRazvi/next_sanity_blog_app)
+
+## Photos
+
+![Home Page Dark Mode](public/dark1.png)
+![Home Page Light Mode](public/light1.png)
+
+## 🚀 MVP Features
+
+- **Modern UI/UX**
+
+  - Dark/Light mode system support
+  - Responsive design for all devices
+  - Clean, minimalist interface
+  - Smooth animations and transitions
+
+- **Content Management**
+
+  - Sanity Studio integration
+  - Rich text editor support
+  - Image optimization and management
+  - Author profiles with metadata
+
+- **Technical Features**
+  - TypeScript for type safety
+  - Tailwind CSS for styling
+  - SEO optimized with metadata
+  - Responsive images
+  - Fast page loads
+
+## InSights
+
+![Desktop](public/perf_desk.png)
+![Mobile](public/perf_mobile.png)
+
+## 🛠️ Tech Stack
+
+- Next.js 15
+- Sanity CMS
+- TypeScript
+- Tailwind CSS
+- Heroicons
+
+## 🚀 Coming Soon
+
+- Static Site Generation (SSG)
+- Preview Mode
+- Search functionality
+- Newsletter subscription
+
+## 🚀 Getting Started
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/SyedSibtainRazvi/next_sanity_blog_app.git
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Set up environment variables
+
+```bash
+cp .env.example .env.local
+```
+
+4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License - feel free to use this project for your own blog!
