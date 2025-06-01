@@ -3,7 +3,7 @@ import BlogLists from "../components/BlogLists";
 import { client } from "../../sanity/lib/client";
 
 const query = groq`
-*[_type == "post"]{
+*[_type == "post"] | order(publishedAt desc) {
   ...,
   author->
 }`;
