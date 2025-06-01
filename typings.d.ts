@@ -1,4 +1,4 @@
-type Base = {
+export type Base = {
   _createdAt: string;
   _id: string;
   _rev: string;
@@ -6,7 +6,7 @@ type Base = {
   _updatedAt: string;
 };
 
-interface Post extends Base {
+export interface Post extends Base {
   author: Author;
   body: Block[];
   categories: Category[];
@@ -17,30 +17,30 @@ interface Post extends Base {
   publishedAt: string;
 }
 
-interface Author extends Base {
+export interface Author extends Base {
   bio: Block[];
   image: Image;
   name: string;
   slug: Slug;
 }
 
-interface Image {
+export interface Image {
   _type: "image";
   asset: Reference;
   alt?: string;
 }
 
-interface Reference {
+export interface Reference {
   _ref: string;
   _type: "reference";
 }
 
-interface Slug {
+export interface Slug {
   _type: "slug";
   current: string;
 }
 
-interface Block {
+export interface Block {
   _key: string;
   _type: "block";
   children: Span[];
@@ -48,21 +48,22 @@ interface Block {
   style: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
 }
 
-interface Span {
+export interface Span {
   _key: string;
   _type: "span";
 }
 
-interface Category extends Base {
+export interface Category extends Base {
   description: string;
   title: string;
 }
 
-interface MainImage {
+export interface MainImage {
   _type: "image";
   asset: Reference;
 }
-interface Title {
+
+export interface Title {
   _type: "string";
   current: string;
 }
