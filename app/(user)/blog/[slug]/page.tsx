@@ -68,8 +68,6 @@ const Blog = async ({ params }: Props) => {
                   year: "numeric",
                 })}
               </time>
-              <span>•</span>
-              <span>{Math.ceil(post.body.length / 1000)} min read</span>
             </div>
           </div>
         </div>
@@ -92,7 +90,7 @@ const Blog = async ({ params }: Props) => {
           {post.categories.map((category: Category) => (
             <span
               key={category._id}
-              className="bg-gray-50 dark:bg-gray-800 px-4 py-1.5 rounded-full text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="bg-gray-200 dark:bg-gray-800 px-4 py-1.5 rounded-full text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
               {category.title}
             </span>
@@ -104,6 +102,40 @@ const Blog = async ({ params }: Props) => {
         <PortableText
           value={post.body}
           components={{
+            types: {
+              image: ({ value }) => (
+                <div className="my-8">
+                  <Image
+                    src={urlFor(value).url()}
+                    alt={value.alt || "Blog image"}
+                    width={800}
+                    height={500}
+                    className="rounded-lg object-cover mx-auto"
+                  />
+                </div>
+              ),
+            },
+            marks: {
+              link: ({ children, value }) => (
+                <a
+                  href={value.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 underline hover:opacity-80"
+                >
+                  {children}
+                </a>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold">{children}</strong>
+              ),
+              em: ({ children }) => <em className="italic">{children}</em>,
+              code: ({ children }) => (
+                <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm font-mono">
+                  {children}
+                </code>
+              ),
+            },
             block: {
               h1: ({ children }) => (
                 <h1 className="text-3xl font-bold mt-12 mb-6">{children}</h1>
@@ -119,6 +151,13 @@ const Blog = async ({ params }: Props) => {
                   {children}
                 </p>
               ),
+              blockquote: ({ children }) => (
+                <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 py-2 my-6 italic text-gray-600 dark:text-gray-400">
+                  {children}
+                </blockquote>
+              ),
+            },
+            list: {
               bullet: ({ children }) => (
                 <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700 dark:text-gray-300">
                   {children}
@@ -129,6 +168,10 @@ const Blog = async ({ params }: Props) => {
                   {children}
                 </ol>
               ),
+            },
+            listItem: {
+              bullet: ({ children }) => <li className="ml-2">{children}</li>,
+              number: ({ children }) => <li className="ml-2">{children}</li>,
             },
           }}
         />
