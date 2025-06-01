@@ -1,10 +1,12 @@
+import Link from "next/link";
 import Image from "next/image";
 import { groq } from "next-sanity";
+import { Post, Category } from "@/typings";
+import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "../../../../sanity/lib/image";
 import { client } from "../../../../sanity/lib/client";
-import { notFound } from "next/navigation";
-import { Post, Category } from "@/typings";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 type Props = {
   params: Promise<{
@@ -30,6 +32,14 @@ const Blog = async ({ params }: Props) => {
 
   return (
     <article className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
+      <Link
+        href="/"
+        className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-8 transition-colors"
+      >
+        <ArrowLeftIcon className="h-5 w-5 mr-2" />
+        Back
+      </Link>
+
       <h1 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900 dark:text-white leading-tight">
         {post.title}
       </h1>

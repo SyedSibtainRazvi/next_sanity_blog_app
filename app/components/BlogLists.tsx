@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { urlFor } from "../../sanity/lib/image";
 import { Post } from "@/typings";
+import { urlFor } from "../../sanity/lib/image";
 
 interface BlogListsProps {
   posts: Post[];
@@ -10,7 +10,7 @@ interface BlogListsProps {
 export default function BlogLists({ posts }: BlogListsProps) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
-      <h1 className="text-4xl font-bold mb-8 dark:text-white">Latest Posts</h1>
+      <h1 className="text-4xl font-bold mb-8 dark:text-white">Latest Blogs</h1>
       <div className="space-y-6">
         {posts.map((post) => (
           <Link
@@ -25,7 +25,6 @@ export default function BlogLists({ posts }: BlogListsProps) {
                     src={urlFor(post.mainImage).url()}
                     alt={post.mainImage.alt || post.title}
                     fill
-                    sizes="(max-width: 768px) 64px, 96px"
                     className="object-cover rounded"
                   />
                 </div>
