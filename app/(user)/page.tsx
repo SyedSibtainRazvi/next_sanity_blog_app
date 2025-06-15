@@ -1,4 +1,5 @@
 import { groq } from "next-sanity";
+import Banner from "../components/Banner";
 import BlogLists from "../components/BlogLists";
 import { client } from "../../sanity/lib/client";
 
@@ -13,6 +14,7 @@ export default async function Home() {
 
   return (
     <main>
+      <Banner />
       <BlogLists posts={posts} />
     </main>
   );

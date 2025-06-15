@@ -19,6 +19,15 @@ const Header = () => {
               />
             </div>
           </Link>
+
+          <nav className="flex items-center space-x-6">
+            <Link
+              href="/motivation"
+              className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+            >
+              Motivation
+            </Link>
+          </nav>
         </div>
       </div>
     </header>
